@@ -148,23 +148,19 @@ public class InterfazUsuarios extends Frame implements ActionListener {
     
     public Panel efectuarCambio() {
         Panel navBar = new Panel(new FlowLayout(FlowLayout.RIGHT));
-        String[] opciones = {"Creación", "Usuarios", "Libros", "Registros", "Devolución", "Búsqueda"};
+        String[] opciones = {"Creación", "Usuarios", "Libros", "Prestamo", "Devolucion", "Búsqueda"};
         for (String opcion : opciones) {
 
             Button btn = new Button(opcion);
 
-            if (opcion.equals("Libros")) {
+            if (opcion.equals("Usuarios")) {
                 btn.setBackground(Color.black);
-                btn.setForeground(Color.white);
+             
             }
 
             if (opcion.equals("Creación")) {
 
                 btn.addActionListener(new InterfazBibleoteca(this));
-
-            } else if (opcion.equals("Usuarios")) {
-
-                //btn.addActionListener(new InterfazUsuarios(this));
 
             } else if (opcion.equals("Libros")) {
 
@@ -174,13 +170,13 @@ public class InterfazUsuarios extends Frame implements ActionListener {
 
                 btn.addActionListener(new InterfazBusqueda(this));
 
-            } else if (opcion.equals("Registros")) {
+            } else if (opcion.equals("Prestamo")) {
 
-              //  btn.addActionListener(new InterfazRegistros(this));
+               btn.addActionListener(new InterfazPrestamo(this));
 
-            } else if (opcion.equals("Devolución")) {
+            } else if (opcion.equals("Devolucion")) {
 
-             //   btn.addActionListener(new InterfazDevolucion(this));
+              btn.addActionListener(new InterfazDevolucion(this));
             }
 
             navBar.add(btn);

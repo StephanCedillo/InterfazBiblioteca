@@ -17,6 +17,7 @@ import java.awt.event.WindowEvent;
 import ups.edu.ec.bibleoteca.interfazbibleoteca.InterfazBibleoteca;
 import ups.edu.ec.bibleoteca.interfazclases.InterfazDevolucion;
 import ups.edu.ec.bibleoteca.interfazclases.InterfazLibros;
+import ups.edu.ec.bibleoteca.interfazclases.InterfazPrestamo;
 import ups.edu.ec.bibleoteca.interfazclases.InterfazUsuarios;
 
 public class InterfazBusqueda extends Frame implements ActionListener {
@@ -70,7 +71,7 @@ public class InterfazBusqueda extends Frame implements ActionListener {
         Panel navBar = new Panel(new FlowLayout(FlowLayout.RIGHT, 15, 15));
         navBar.setBackground(Color.WHITE);
         
-        String[] opciones = {"Creación", "Usuarios", "Libros", "Registros", "Devolución", "Búsqueda"};
+        String[] opciones = {"Creación", "Usuarios", "Libros", "Prestamo", "Devolucion", "Búsqueda"};
         
         for (String opcion : opciones) {
             Button btn = new Button(opcion);
@@ -90,11 +91,11 @@ public class InterfazBusqueda extends Frame implements ActionListener {
                 btn.addActionListener(new InterfazUsuarios(this));
             } else if (opcion.equals("Libros")) {
                 btn.addActionListener(new InterfazLibros(this));
-            } else if (opcion.equals("Búsqueda")) {
+            } else if (opcion.equals("Prestamo")) {
+                btn.addActionListener(new InterfazPrestamo(this));
+            } else if (opcion.equals("Devolucion")) {
                 
-            } else if (opcion.equals("Registros")) {
-                
-            } else if (opcion.equals("Devolución")) {
+                btn.addActionListener(new InterfazDevolucion(this));
                 
             }
 

@@ -19,6 +19,8 @@ import ups.edu.ec.bibleoteca.interfazclases.Busqueda.InterfazBusqueda;
 import ups.edu.ec.bibleoteca.interfazclases.InterfazLibros;
 import ups.edu.ec.bibleoteca.interfazclases.InterfazUsuarios;
 import ups.edu.ec.bibleoteca.interfazclases.Creacion.InterfazCreacion;
+import ups.edu.ec.bibleoteca.interfazclases.InterfazDevolucion;
+import ups.edu.ec.bibleoteca.interfazclases.InterfazPrestamo;
 
 /**
  *
@@ -43,7 +45,7 @@ public class InterfazBibleoteca extends Frame implements ActionListener {
         Button bCreacion = new Button("Creación");
         Button bUsuarios = new Button("Usuarios");
         Button bLibros = new Button("Libros");
-        Button bRegistros = new Button("Registros");
+        Button bPrestamo = new Button("Prestamo");
         Button bDevolucion = new Button("Devolución");
         Button bBusqueda = new Button("Búsqueda");
 
@@ -52,12 +54,16 @@ public class InterfazBibleoteca extends Frame implements ActionListener {
 
         bUsuarios.addActionListener(new InterfazUsuarios(this));
         bLibros.addActionListener(new InterfazLibros(this));
+         bPrestamo.addActionListener(new InterfazPrestamo(this));
+          bDevolucion.addActionListener(new InterfazDevolucion(this));
         bBusqueda.addActionListener(new InterfazBusqueda(this));
+        
+        
 
         navBar.add(bCreacion);
         navBar.add(bUsuarios);
         navBar.add(bLibros);
-        navBar.add(bRegistros);
+        navBar.add(bPrestamo);
         navBar.add(bDevolucion);
         navBar.add(bBusqueda);
 
@@ -88,6 +94,6 @@ public class InterfazBibleoteca extends Frame implements ActionListener {
 
     public static void main(String[] args) {
         // Arranca la ventana en el centro
-        new InterfazBibleoteca(new Point(500, 500));
+        new InterfazBibleoteca(new Point(700, 700));
     }
 }
