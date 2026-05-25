@@ -4,9 +4,6 @@
 
 package ups.edu.ec.bibleoteca.interfazbibleoteca;
 
-import java.awt.Frame;
-import ups.edu.ec.bibleoteca.interfazclases.Creacion.InterfazCreacion;
-
 /**
  *
  * @author stephancedillo
@@ -14,12 +11,6 @@ import ups.edu.ec.bibleoteca.interfazclases.Creacion.InterfazCreacion;
 public class InterfazBibleoteca {
 
     public static void main(String[] args) {
-         Frame frame = new Frame("Ventana");
-         frame.setSize(900, 900);
-         InterfazCreacion interfazCreacion= new InterfazCreacion();
-         frame.add(interfazCreacion.getPanelInterfaz());
-         
-         frame.setVisible(true);
-         
+        System.out.println("Hello World!");
     }
 }
