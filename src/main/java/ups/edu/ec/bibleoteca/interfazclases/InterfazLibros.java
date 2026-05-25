@@ -8,6 +8,7 @@ import java.awt.BorderLayout;
 import java.awt.Button;
 import java.awt.Color;
 import java.awt.FlowLayout;
+import java.awt.Font;
 import java.awt.Frame;
 import java.awt.GridLayout;
 import java.awt.Label;
@@ -18,6 +19,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import ups.edu.ec.bibleoteca.interfazbibleoteca.InterfazBibleoteca;
+import ups.edu.ec.bibleoteca.interfazclases.Busqueda.InterfazBusqueda;
 
 /**
  *
@@ -35,27 +37,11 @@ public class InterfazLibros extends Frame implements ActionListener {
         super("Sistema Biblioteca - Catálogo de Libros");
 
         this.setLayout(new BorderLayout());
-        this.setSize(450, 710);
+        this.setSize(900, 710);
         this.setLocationRelativeTo(null);
-
-        Panel navBar = new Panel(new FlowLayout(FlowLayout.RIGHT));
-        String[] opciones = {"Creación", "Usuarios", "Libros", "Registros", "Devolución", "Búsqueda"};
-
-        for (String opcion : opciones) {
-            Button btn = new Button(opcion);
-
-            if (opcion.equals("Libros")) {
-                btn.setBackground(Color.black);
-                btn.setForeground(Color.white);
-            }
-            if (opcion.equals("Creación")) {
-                btn.addActionListener(new InterfazBibleoteca(this));
-            } else if (opcion.equals("Usuarios")) {
-                btn.addActionListener(new InterfazUsuarios(this));
-            }
-
-            navBar.add(btn);
-        }
+        
+        Panel navBar = efectuarCambio();
+        
         this.add(navBar, BorderLayout.NORTH);
 
         Panel listaLibros = new Panel(new GridLayout(3, 1, 0, 15));
@@ -81,32 +67,120 @@ public class InterfazLibros extends Frame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        Point posicionActual = ventanaAnterior.getLocation();
-        ventanaAnterior.dispose();
-        new InterfazLibros(posicionActual);
+        if (ventanaAnterior.isVisible()) {
+            Point posicionActual = ventanaAnterior.getLocation();
+
+            ventanaAnterior.dispose();
+
+            new InterfazLibros(posicionActual);
+
+        }
+
     }
 
-    private Panel crearEtiquetaLibro(String titulo, String isbn, String autor, String restriccion, String idioma, String genero, String cantidad, String estado) {
-        Panel tarjeta = new Panel(new BorderLayout());
+    private Panel crearEtiquetaLibro(String tituloLibro, String isbn, String autor, String restriccion, String idioma, String genero, String cantidad, String estado) {
+        Panel tarjeta = new Panel(new BorderLayout(20, 10));
+        tarjeta.setBackground(new Color(249,245,245));
 
-        Panel info = new Panel(new GridLayout(8, 1));
-        info.setBackground(Color.white);
+        Label iconoLibro = new Label(" \u25A0 ", Label.CENTER); 
+        iconoLibro.setFont(new Font("SansSerif", Font.PLAIN, 120));
+        tarjeta.add(iconoLibro, BorderLayout.WEST);
 
-        info.add(new Label("  Título: " + titulo));
-        info.add(new Label("  ISBN: " + isbn));
-        info.add(new Label("  Autor: " + autor));
-        info.add(new Label("  Restriccion: " + restriccion));
-        info.add(new Label("  Idioma: " + idioma));
-        info.add(new Label("  Genero: " + genero));
-        info.add(new Label("  Cantidad: " + cantidad));
-        info.add(new Label("  Estado: " + estado));
+        Panel infoCentro = new Panel(new GridLayout(4, 1));
+        infoCentro.setBackground(new Color(249,245,245));
+        
+        Label lblTitulo = new Label(tituloLibro);
+        lblTitulo.setFont(new Font("SansSerif", Font.BOLD, 20));
+        infoCentro.add(lblTitulo);
+        
+        Label lblAutor = new Label("Autor: " + autor);
+        lblAutor.setFont(new Font("SansSerif", Font.BOLD, 14));
+        infoCentro.add(lblAutor);
+        
+        Label lblIsbn = new Label("ISBN: " + isbn);
+        lblIsbn.setFont(new Font("SansSerif", Font.BOLD, 14));
+        infoCentro.add(lblIsbn);
+        
+        Label lblIdioma = new Label("Idioma: " + idioma);
+        lblIdioma.setFont(new Font("SansSerif", Font.BOLD, 14));
+        infoCentro.add(lblIdioma);
 
-        tarjeta.add(info, BorderLayout.CENTER);
+        tarjeta.add(infoCentro, BorderLayout.CENTER);
 
-        Label lineaNegra = new Label("");
-        lineaNegra.setBackground(Color.black);
-        tarjeta.add(lineaNegra, BorderLayout.SOUTH);
+        Panel infoDerecha = new Panel(new GridLayout(4, 1));
+        infoDerecha.setBackground(new Color(242, 242, 242));
+        
+        Label lblGenero = new Label("Genero: " + genero);
+        lblGenero.setFont(new Font("SansSerif", Font.BOLD, 14));
+        infoDerecha.add(lblGenero);
+        
+        Label lblEstado = new Label("Estado: " + estado);
+        lblEstado.setFont(new Font("SansSerif", Font.BOLD, 14));
+        infoDerecha.add(lblEstado);
+        
+        Label lblCantidad = new Label("Cantidad: " + cantidad);
+        lblCantidad.setFont(new Font("SansSerif", Font.BOLD, 14));
+        infoDerecha.add(lblCantidad);
+        
+        Label lblRestriccion = new Label("Restriccion: " + restriccion);
+        lblRestriccion.setFont(new Font("SansSerif", Font.BOLD, 14));
+        infoDerecha.add(lblRestriccion);
+
+        tarjeta.add(infoDerecha, BorderLayout.EAST);
+
+        Panel contenedorLinea = new Panel(new GridLayout(1, 2));
+        contenedorLinea.setBackground(new Color(249,245,245));
+        
+        contenedorLinea.add(new Label(""));
+        
+        Label lineaRoja = new Label("");
+        lineaRoja.setBackground(new Color(192, 90, 90));
+        contenedorLinea.add(lineaRoja); 
+        
+        tarjeta.add(contenedorLinea, BorderLayout.SOUTH);
 
         return tarjeta;
+    }
+
+    public Panel efectuarCambio() {
+        Panel navBar = new Panel(new FlowLayout(FlowLayout.RIGHT));
+        String[] opciones = {"Creación", "Usuarios", "Libros", "Registros", "Devolución", "Búsqueda"};
+        for (String opcion : opciones) {
+
+            Button btn = new Button(opcion);
+
+            if (opcion.equals("Libros")) {
+                btn.setBackground(Color.black);
+                btn.setForeground(Color.white);
+            }
+
+            if (opcion.equals("Creación")) {
+
+                btn.addActionListener(new InterfazBibleoteca(this));
+
+            } else if (opcion.equals("Usuarios")) {
+
+                btn.addActionListener(new InterfazUsuarios(this));
+
+            } else if (opcion.equals("Libros")) {
+
+               // btn.addActionListener(this);
+
+            } else if (opcion.equals("Búsqueda")) {
+
+                btn.addActionListener(new InterfazBusqueda(this));
+
+            } else if (opcion.equals("Registros")) {
+
+              //  btn.addActionListener(new InterfazRegistros(this));
+
+            } else if (opcion.equals("Devolución")) {
+
+             //   btn.addActionListener(new InterfazDevolucion(this));
+            }
+
+            navBar.add(btn);
+        }
+        return navBar;
     }
 }

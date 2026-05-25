@@ -15,8 +15,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import ups.edu.ec.bibleoteca.interfazclases.Busqueda.InterfazBusqueda;
 import ups.edu.ec.bibleoteca.interfazclases.InterfazLibros;
 import ups.edu.ec.bibleoteca.interfazclases.InterfazUsuarios;
+import ups.edu.ec.bibleoteca.interfazclases.Creacion.InterfazCreacion;
 
 /**
  *
@@ -50,6 +52,7 @@ public class InterfazBibleoteca extends Frame implements ActionListener {
 
         bUsuarios.addActionListener(new InterfazUsuarios(this));
         bLibros.addActionListener(new InterfazLibros(this));
+        bBusqueda.addActionListener(new InterfazBusqueda(this));
 
         navBar.add(bCreacion);
         navBar.add(bUsuarios);
@@ -61,7 +64,9 @@ public class InterfazBibleoteca extends Frame implements ActionListener {
         this.add(navBar, BorderLayout.NORTH);
 
         Panel centro = new Panel(new FlowLayout(FlowLayout.CENTER, 0, 40));
-        centro.add(new Label("BIENVENIDO AL INICIO (ÁREA DE CREACIÓN)"));
+   
+        InterfazCreacion creacionPanel = new InterfazCreacion();
+        centro.add(creacionPanel.getPanelInterfaz());
         this.add(centro, BorderLayout.CENTER);
 
         this.addWindowListener(new WindowAdapter() {
@@ -83,6 +88,6 @@ public class InterfazBibleoteca extends Frame implements ActionListener {
 
     public static void main(String[] args) {
         // Arranca la ventana en el centro
-        new InterfazBibleoteca(new Point(100, 100));
+        new InterfazBibleoteca(new Point(500, 500));
     }
 }

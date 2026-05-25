@@ -15,11 +15,11 @@ public class InterfazCreacion {
     private Panel panelDerecha = new Panel();
     
  
-    Panel[] panelesIntercambio = new Panel[3];
-    CreacionLibro libro = new CreacionLibro();
-    CreacionUsuario usuario = new CreacionUsuario();
-    CreacionPrestamo prestamo = new CreacionPrestamo();
-    Panel panelIntercambioPrincipal = new Panel();
+    private Panel[] panelesIntercambio = new Panel[3];
+    private CreacionLibro libro = new CreacionLibro();
+    private CreacionUsuario usuario = new CreacionUsuario();
+    private CreacionPrestamo prestamo = new CreacionPrestamo();
+    private Panel panelIntercambioPrincipal = new Panel();
 
     public InterfazCreacion() {
         

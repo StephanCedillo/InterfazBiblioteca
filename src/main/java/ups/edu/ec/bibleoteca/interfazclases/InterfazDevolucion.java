@@ -4,10 +4,15 @@
  */
 package ups.edu.ec.bibleoteca.interfazclases;
 
+import ups.edu.ec.bibleoteca.interfazclases.Busqueda.InterfazBusqueda;
+
 /**
  *
  * @author stephancedillo
  */
 public class InterfazDevolucion {
+
+    public InterfazDevolucion(InterfazBusqueda aThis) {
+    }
     
 }
