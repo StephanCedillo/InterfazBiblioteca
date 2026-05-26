@@ -121,18 +121,18 @@ public class InterfazDevolucion extends Frame implements ActionListener {
 
         Panel pnlTexto = new Panel(new GridLayout(2, 1));
         
-        Panel row1 = new Panel(new FlowLayout(FlowLayout.CENTER, 0, 20));
+        Panel columna1 = new Panel(new FlowLayout(FlowLayout.CENTER, 0, 20));
         Label lblLinea1 = new Label("El libro se devolvió");
         lblLinea1.setFont(new Font("SansSerif", Font.BOLD, 28));
-        row1.add(lblLinea1);
+        columna1.add(lblLinea1);
         
-        Panel row2 = new Panel(new FlowLayout(FlowLayout.CENTER, 0, 0));
+        Panel columa2 = new Panel(new FlowLayout(FlowLayout.CENTER, 0, 0));
         Label lblLinea2 = new Label("correctamente");
         lblLinea2.setFont(new Font("SansSerif", Font.BOLD, 28));
-        row2.add(lblLinea2);
+        columa2.add(lblLinea2);
 
-        pnlTexto.add(row1);
-        pnlTexto.add(row2);
+        pnlTexto.add(columna1);
+        pnlTexto.add(columa2);
         
         Panel pnlSur = new Panel(new FlowLayout(FlowLayout.CENTER, 0, 25));
         Panel pnlVerde = new Panel();
@@ -143,19 +143,10 @@ public class InterfazDevolucion extends Frame implements ActionListener {
         toast.add(pnlTexto, BorderLayout.CENTER);
         toast.add(pnlSur, BorderLayout.SOUTH);
 
-        Point loc = this.getLocationOnScreen();
-        toast.setLocation(loc.x + (this.getWidth() - toast.getWidth()) / 2, loc.y + (this.getHeight() - toast.getHeight()) / 2 + 50);
+        toast.setLocation(500,500);
         
         toast.setVisible(true);
 
-        new Thread(() -> {
-            try {
-                Thread.sleep(2500); 
-            } catch (InterruptedException ex) {
-                ex.printStackTrace();
-            }
-            toast.dispose();
-        }).start();
     }
 
     public Panel efectuarCambio() {
