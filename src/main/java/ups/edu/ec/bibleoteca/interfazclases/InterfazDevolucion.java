@@ -121,18 +121,18 @@ public class InterfazDevolucion extends Frame implements ActionListener {
 
         Panel pnlTexto = new Panel(new GridLayout(2, 1));
         
-        Panel columna1 = new Panel(new FlowLayout(FlowLayout.CENTER, 0, 20));
+        Panel filla1 = new Panel(new FlowLayout(FlowLayout.CENTER, 0, 20));
         Label lblLinea1 = new Label("El libro se devolvió");
         lblLinea1.setFont(new Font("SansSerif", Font.BOLD, 28));
-        columna1.add(lblLinea1);
+        filla1.add(lblLinea1);
         
-        Panel columa2 = new Panel(new FlowLayout(FlowLayout.CENTER, 0, 0));
+        Panel fila2 = new Panel(new FlowLayout(FlowLayout.CENTER, 0, 0));
         Label lblLinea2 = new Label("correctamente");
         lblLinea2.setFont(new Font("SansSerif", Font.BOLD, 28));
-        columa2.add(lblLinea2);
+        fila2.add(lblLinea2);
 
-        pnlTexto.add(columna1);
-        pnlTexto.add(columa2);
+        pnlTexto.add(filla1);
+        pnlTexto.add(fila2);
         
         Panel pnlSur = new Panel(new FlowLayout(FlowLayout.CENTER, 0, 25));
         Panel pnlVerde = new Panel();
@@ -185,7 +185,6 @@ public class InterfazDevolucion extends Frame implements ActionListener {
 
             pnlBotones.add(btn);
         }
-
         navBar.add(pnlLogo, BorderLayout.WEST);
         navBar.add(pnlBotones, BorderLayout.EAST);
         

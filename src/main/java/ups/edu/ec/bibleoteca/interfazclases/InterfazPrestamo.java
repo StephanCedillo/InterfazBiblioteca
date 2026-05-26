@@ -33,7 +33,7 @@ public class InterfazPrestamo extends Frame implements ActionListener {
         super("Sistema Biblioteca - Gestión de Registros y Préstamos");
         this.setLayout(new BorderLayout());
 
-        // Se amplía el tamaño para acomodar el nuevo diseño con 3 columnas + ícono
+
         this.setSize(1050, 710);
         this.setLocationRelativeTo(null);
 

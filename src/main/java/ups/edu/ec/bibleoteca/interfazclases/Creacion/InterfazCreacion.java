@@ -46,14 +46,10 @@ public class InterfazCreacion {
        
         panelIzquierda.setLayout(new BorderLayout(0, 20));
         panelIzquierda.setBackground(new Color(245, 240, 240));
-
         Panel panelNombre = new Panel();
-        
         Label labelNombre = new Label("ANDRESITO BOOKS", Label.CENTER); 
-     
         labelNombre.setFont(new Font("Monospaced", Font.BOLD, 22)); 
         panelNombre.add(labelNombre);
-
         Panel panelImage = new Panel();
         String dibujo = "__________________________________________¶¶¶¶¶¶¶¶\n"
                 + "____¶¶¶________________________________¶¶¶¶____¶¶\n"
@@ -76,15 +72,12 @@ public class InterfazCreacion {
                 + "___¶¶________________________¶¶¶¶¶\n"
                 + "____¶¶_______________¶¶¶¶¶¶¶¶¶\n"
                 + "______¶¶¶¶_____________¶¶\n";
-        
-      
+       
         TextArea areaTexto = new TextArea(dibujo, 25, 45, TextArea.SCROLLBARS_NONE);
         areaTexto.setEditable(false); 
         areaTexto.setBackground(new Color(220, 215, 215)); 
-
         panelImage.add(areaTexto);
         panelNombre.setBackground(Color.GRAY);
-
         panelIzquierda.add(panelNombre, BorderLayout.NORTH);
         
         panelIzquierda.add(panelImage, BorderLayout.CENTER); 

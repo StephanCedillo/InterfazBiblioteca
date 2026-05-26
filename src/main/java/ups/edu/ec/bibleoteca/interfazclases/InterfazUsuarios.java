@@ -152,12 +152,9 @@ public class InterfazUsuarios extends Frame implements ActionListener {
         for (String opcion : opciones) {
 
             Button btn = new Button(opcion);
-
             if (opcion.equals("Usuarios")) {
                 btn.setBackground(Color.black);
-             
             }
-
             if (opcion.equals("Creación")) {
 
                 btn.addActionListener(new InterfazBibleoteca(this));

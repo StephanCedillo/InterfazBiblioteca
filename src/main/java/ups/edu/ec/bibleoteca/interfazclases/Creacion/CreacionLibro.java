@@ -72,7 +72,7 @@ public class CreacionLibro {
         
         Label separador = new Label("Si el autor no esta registrado en el sistema ingresar ; ");
         separador.setFont(new Font("SansSerif", Font.PLAIN, 14));
-        separador.setForeground(Color.BLUE);
+        separador.setForeground(Color.gray);
         panelBotones.add(separador);
         
         panelBotones.add(fila7);
